@@ -3022,7 +3022,7 @@ CharCodeToUnicode *GlobalParams::getUnicodeToUnicode(GString *fontName) {
     GString * fontname  = new GString(fontrule.name);
     if(strstr(fontName->getCString(), fontname->getCString())){
       //memset(mapA + oldSize, 0, (size - oldSize) * sizeof(Unicode));
-      Unicode map[fontrule.maxCharCode + 1];
+      Unicode *map = new Unicode[fontrule.maxCharCode + 1];
       int n = (sizeof(advtt3f84ef53) / sizeof(UnicodeMapping));
       for(int i = 0; i < n; i++){
         map[fontrule.map[i].charcode]=fontrule.map[i].unicode;
